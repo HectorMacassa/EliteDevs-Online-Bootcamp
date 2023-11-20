@@ -5,6 +5,16 @@ body {
 }
 
 h1 {
+    font-family: monospace;
     color: white;
-    justify-content: center;
+    text-align: center;
+}
+
+dt, dd {
+    color: white;
+    margin-bottom: 20px;
+}
+
+footer {
+    color: white;
 }
