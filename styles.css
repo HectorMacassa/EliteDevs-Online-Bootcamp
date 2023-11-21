@@ -21,7 +21,19 @@ dt, dd {
 }
 
 h1 {
+    font-family: monospace;
     color: white;
+    text-align: center;
+}
+
+dt, dd {
+    color: white;
+    margin-bottom: 20px;
+}
+
+footer {
+    color: white;
+<<<<<<< HEAD
     text-align: center;
 }
 
@@ -48,4 +60,6 @@ nav div {
 
 table {
     border:1px solid white;
+=======
+>>>>>>> b8ecb51041aca590c5cae69a95e0bee706a4a1da
 }
