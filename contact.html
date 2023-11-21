@@ -15,11 +15,11 @@
             <h2>The leading online bootcamp</h2>
         </header>
         <nav>
-            <a href="index.html">Home</a> |
-            <a href="test.html">Test</a> |
-            <a href="about.html">About Us</a> |
-            <a href="contact.html">Contact Us</a> |
-        </nav>
+            <div><a href="index.html">Home</a></div>
+             <div><a href="test.html">Test</a></div>
+             <div><a href="about.html">About Us</a></div>
+             <div><a href="contact.html">Contact Us</a></div>
+         </nav>
         <h3>We would love to be in touch with you.</h3><br>
         <p>
             Whether you are a prospective student or a company seeking to hire our alumni.<br>
@@ -29,10 +29,39 @@
             <input type="text" id="name" placeholder="Full Names" required><br>
             <input type="number" id="contact" placeholder="Contact" required><br>
             <input type="email" id="email" placeholder="Email" required><br>
-            Message: <br> <textarea name="message" style="width: 400px;height: 100px;">
+            Message: <br><textarea name="message" style="width: 400px;height: 100px;">
             </textarea><br>
             <input type="submit" value="Send Message"
-        </form>
+        </form><br><br>
+
+        <table>
+            <tr>
+                <th colspan="7">
+                    <h3>Hours of Operation</h3>
+                </th>
+            </tr>
+            <tr>
+                <th style="width:12%;border:1px solid #ddd">Monday</th>
+                <th style="width:12%;border:1px solid #ddd">Tuesday</th>
+                <th style="width:12%;border:1px solid #ddd">Wednesday</th>
+                <th style="width:12%;border:1px solid #ddd">Thursday</th>
+                <th style="width:12%;border:1px solid #ddd">Friday</th>
+                <th style="width:12%;border:1px solid #ddd">Saturday</th>
+                <th style="width:12%;border:1px solid #ddd">Sunday</th>
+            </tr>
+            <tr>
+                <td style="border:1px solid #ddd">8:00am - 4:00pm</td>
+                <td style="border:1px solid #ddd">8:00am - 4:00pm</td>
+                <td style="border:1px solid #ddd">8:00am - 4:00pm</td>
+                <td style="border:1px solid #ddd">8:00am - 4:00pm</td>
+                <td style="border:1px solid #ddd">8:00am - 4:00pm</td>
+                <td id="Closed" colspan="2" style="border: 1px solid">Closed</td>
+            </tr>
+            <tr>
+                <td id="Closed" colspan="7" style="border:1px solid">We are closed on public holidays</td>
+            </tr>
+        
+        </table>
         
         <script src="" async defer></script>
         <footer>
