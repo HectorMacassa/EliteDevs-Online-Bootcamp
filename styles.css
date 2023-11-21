@@ -1,33 +1,33 @@
 body {
-    background-image: url("images/background.jpg");
+   /* background-image: url("images/background.jpg");*/
     background-size: cover;
     background-repeat: repeat;
 }
 
 a:link {
-    color: white;
+    color: black;
 }
 
 a:visited {
-    color: white;
+    color: red;
 }
 
 a:hover {
-    color: grey;
+    color: rgba(128, 128, 128, 0.575);
 }
 
 dt, dd {
-    color: white;
+    color: black;
 }
 
 h1 {
     font-family: monospace;
-    color: white;
+    color: black;
     text-align: center;
 }
 
 dt, dd {
-    color: white;
+    color: black;
     margin-bottom: 20px;
 }
 
@@ -50,7 +50,7 @@ th, td {
 
 footer {
     margin-top: 40px;
-    color: white;
+    color: black;
 }
 
 nav div {
@@ -58,5 +58,5 @@ nav div {
 }
 
 table {
-    border:1px solid white;
+    border:1px solid black;
 }
