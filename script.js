@@ -1,5 +1,15 @@
 const questions = [
     {
+        question: "What is the most popular programming language for web development?",
+        answer: [
+            { text: "Python", correct: false},
+            { text: "Java", correct: false},
+            { text: "JavaScript", correct: true},
+            { text: "C++", correct: false}
+        ]
+    },
+
+    {
         question: "Add question here?",
         answers: [
             { text: "One", correct: false},
@@ -7,12 +17,92 @@ const questions = [
             { text: "Three", correct: true},
             { text: "Four", correct: false}
         ]
-    }
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
+
+    {
+        question: "Add question here?",
+        answers: [
+            { text: "One", correct: false},
+            { text: "Two", correct: false},
+            { text: "Three", correct: true},
+            { text: "Four", correct: false}
+        ]
+    },
 
 ];
 
 const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-buttons");
+const answerButtons = document.getElementById("answerButtons");
 const nextButton = document.getElementById("next-btn");
 
 let currentQuestionIndex = 0;
@@ -34,7 +124,7 @@ function showQuestion(){
         const button = document.createElement("button");
         button.innerHTML = answer.text;
         button.classList.add("btn");
-        answerButton.appendChild(button);
+        answerButtons.appendChild(button);
         if (answer.correct){
             button.dataset.correct = answer.correct;
         }
@@ -44,8 +134,8 @@ function showQuestion(){
 
 function resetState(){
     nextButton.style.display = "none";
-    while (answerButton.firstChild){
-        answerButton.removeChild(answerButton.firstChild);
+    while (answerButtons.firstChild){
+        answerButtons.removeChild(answerButtons.firstChild);
     }
 }
 
