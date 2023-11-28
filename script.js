@@ -113,6 +113,7 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const reviewButton = document.getElementById("review-btn");
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -210,6 +211,11 @@ nextButton.addEventListener("click", ()=>{
     else {
         startQuiz();
     }
+    reviewButton.addEventListener("click", () => {
+      // Redirect to the review page
+      window.location.href = "review.html";
+    });
+
 })
 
 startQuiz();
