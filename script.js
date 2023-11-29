@@ -11,8 +11,7 @@ const questions = [
   },
 
   {
-    question:
-      "What is HTML used for?",
+    question: "What is HTML used for?",
     answer: [
       { text: "Creating the structure of a web page", correct: true },
       { text: "Styling the appearance of a web page", correct: false },
@@ -22,8 +21,7 @@ const questions = [
   },
 
   {
-    question:
-      "What is CSS used for?",
+    question: "What is CSS used for?",
     answer: [
       { text: "Creating the structure of a web page", correct: false },
       { text: "Styling the appearance of a web page", correct: true },
@@ -33,10 +31,12 @@ const questions = [
   },
 
   {
-    question:
-      "What is a JavaScript framework?",
+    question: "What is a JavaScript framework?",
     answer: [
-      { text: "A collection of libraries and tools that make it easier to develop web applications", correct: true },
+      {
+        text: "A collection of libraries and tools that make it easier to develop web applications",
+        correct: true,
+      },
       { text: "A type of programming language", correct: false },
       { text: "A server-side programming language", correct: false },
       { text: "A client-side programming language", correct: false },
@@ -44,8 +44,7 @@ const questions = [
   },
 
   {
-    question:
-      "What is a database?",
+    question: "What is a database?",
     answer: [
       { text: "A type of programming language", correct: false },
       { text: "A server-side programming language", correct: false },
@@ -55,19 +54,20 @@ const questions = [
   },
 
   {
-    question:
-      "What is a REST API?",
+    question: "What is a REST API?",
     answer: [
       { text: "A type of database", correct: false },
       { text: "A server-side programming language", correct: false },
-      { text: "A set of rules that define how applications can communicate with each other", correct: true },
+      {
+        text: "A set of rules that define how applications can communicate with each other",
+        correct: true,
+      },
       { text: "A client-side programming language", correct: false },
     ],
   },
 
   {
-    question:
-      "What is SQL?",
+    question: "What is SQL?",
     answer: [
       { text: "A type of database", correct: false },
       { text: "A server-side programming language", correct: false },
@@ -77,10 +77,12 @@ const questions = [
   },
 
   {
-    question:
-      "What is version control?",
+    question: "What is version control?",
     answer: [
-      { text: "A system that allows you to track changes to your code over time", correct: true },
+      {
+        text: "A system that allows you to track changes to your code over time",
+        correct: true,
+      },
       { text: "A type of database", correct: false },
       { text: "A server-side programming language", correct: false },
       { text: "A client-side programming language", correct: false },
@@ -88,8 +90,7 @@ const questions = [
   },
 
   {
-    question:
-      "What is a git repository?",
+    question: "What is a git repository?",
     answer: [
       { text: "A type of database", correct: false },
       { text: "A server-side programming language", correct: false },
@@ -114,6 +115,29 @@ const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 const reviewButton = document.getElementById("review-btn");
+
+function showNextButton() {
+  nextButton.style.display = "block";
+  reviewButton.style.display = "none";
+}
+
+function showReviewButton() {
+  nextButton.style.display = "none";
+  reviewButton.style.display = "block";
+}
+
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length - 1) {
+    handleNextButton();
+    showNextButton();
+  } else {
+    showReviewButton();
+  }
+});
+
+reviewButton.addEventListener("click", () => {
+  window.location.href = "review.html";
+});
 
 let currentQuestionIndex = 0;
 let score = 0;
@@ -155,12 +179,14 @@ function selectAnswer(e) {
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
 
+  selectedBtn.classList.add("selected");
+
   if (isCorrect) {
     selectedBtn.classList.add("correct");
     score++;
+  } else {
+    selectedBtn.classList.add("incorrect");
   }
-
-  selectedBtn.classList.add("selected");
 
   Array.from(answerButtons.children).forEach((button) => {
     button.disabled = true;
@@ -169,21 +195,18 @@ function selectAnswer(e) {
   nextButton.style.display = "block";
 }
 
-
-
-function showScore(){
-    resetState();
-    questionElement.innerHTML = `You scored ${(score/questions.length)*100}%`;
+function showScore() {
+  resetState();
+  questionElement.innerHTML = `You scored ${score}`;
 }
 
-function handleNextButton(){
-    currentQuestionIndex++;
-    if (currentQuestionIndex < questions.length){
-        showQuestion();
-    }
-    else {
-        showScore();
-    }
+function handleNextButton() {
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions.length) {
+    showQuestion();
+  } else {
+    showScore();
+  }
 }
 
 function startTimer() {
@@ -201,21 +224,18 @@ function startTimer() {
 function formatTime(seconds) {
   const minutes = Math.floor(seconds / 60);
   const remainingSeconds = seconds % 60;
-  return `${minutes}:${remainingSeconds < 10 ? '0' : ''}${remainingSeconds}`;
+  return `${minutes}:${remainingSeconds < 10 ? "0" : ""}${remainingSeconds}`;
 }
 
-nextButton.addEventListener("click", ()=>{
-    if (currentQuestionIndex < questions.length){
-        handleNextButton();
-    }
-    else {
-        startQuiz();
-    }
-    reviewButton.addEventListener("click", () => {
-      // Redirect to the review page
-      window.location.href = "review.html";
-    });
-
-})
+nextButton.addEventListener("click", () => {
+  if (currentQuestionIndex < questions.length) {
+    handleNextButton();
+  } else {
+    startQuiz();
+  }
+  reviewButton.addEventListener("click", () => {
+    window.location.href = "review.html";
+  });
+});
 
 startQuiz();
